@@ -7,7 +7,7 @@
 
   <fragment
     android:id="@+id/pre_login_fragment"
-    android:name="edu.cnm.deepdive.notes.controller.PreLoginFragment"
+    android:name="edu.cnm.deepdive.deltadraft.controller.PreLoginFragment"
     tools:layout="@layout/fragment_pre_login">
 
     <action
@@ -23,7 +23,7 @@
 
   <fragment
     android:id="@+id/login_fragment"
-    android:name="edu.cnm.deepdive.notes.controller.LoginFragment"
+    android:name="edu.cnm.deepdive.deltadraft.controller.LoginFragment"
     android:label="Sign in to Notes"
     tools:layout="@layout/fragment_login">
     <action
@@ -33,7 +33,7 @@
   </fragment>
   <fragment
     android:id="@+id/list_fragment"
-    android:name="edu.cnm.deepdive.notes.controller.ListFragment"
+    android:name="edu.cnm.deepdive.deltadraft.controller.ListFragment"
     android:label="@string/list_fragment_name"
     tools:layout="@layout/fragment_list">
     <action
@@ -47,7 +47,7 @@
 
   <fragment
     android:id="@+id/details_fragment"
-    android:name="edu.cnm.deepdive.notes.controller.DetailsFragment"
+    android:name="edu.cnm.deepdive.deltadraft.controller.DetailsFragment"
     android:label="@string/details_fragment_label"
     tools:layout="@layout/fragment_details">
 
