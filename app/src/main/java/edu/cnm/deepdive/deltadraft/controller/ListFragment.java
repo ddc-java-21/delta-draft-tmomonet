@@ -17,11 +17,12 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
+import edu.cnm.deepdive.deltadraft.databinding.FragmentListBinding;
 import edu.cnm.deepdive.deltadraft.view.adapter.NoteAdapter;
 import edu.cnm.deepdive.deltadraft.viewmodel.LogInViewModel;
 import edu.cnm.deepdive.deltadraft.viewmodel.NoteViewModel;
-import edu.cnm.deepdive.notes.R;
-import edu.cnm.deepdive.notes.databinding.FragmentListBinding;
+import edu.cnm.deepdive.deltadraft.R;
+
 import javax.inject.Inject;
 
 @AndroidEntryPoint
@@ -64,7 +65,7 @@ public class ListFragment extends Fragment implements MenuProvider {
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     binding = FragmentListBinding.inflate(inflater, container, false);
-    binding.deltadraft.setAdapter(adapter);
+    binding.placeHolder.setAdapter(adapter);
     adapter.setListener((note, position) -> Navigation.findNavController(binding.getRoot())
         .navigate(ListFragmentDirections.showDetails(note.getId())));
     binding.addNote.setOnClickListener((v) -> Navigation.findNavController(binding.getRoot())

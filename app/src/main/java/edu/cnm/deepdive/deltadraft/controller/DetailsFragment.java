@@ -28,6 +28,7 @@ import edu.cnm.deepdive.deltadraft.service.ImageFileProvider;
 import edu.cnm.deepdive.deltadraft.view.adapter.ImageAdapter;
 import edu.cnm.deepdive.deltadraft.viewmodel.NoteViewModel;
 import edu.cnm.deepdive.deltadraft.viewmodel.NoteViewModel.VisibilityFlags;
+
 import java.io.File;
 import java.util.UUID;
 
