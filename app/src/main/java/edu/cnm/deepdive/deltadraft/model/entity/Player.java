@@ -8,17 +8,10 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import java.time.Instant;
 
-@Entity(tableName = "player_user_team",
-    foreignKeys = @ForeignKey(
-        entity = User.class,
-        parentColumns = "user_id",
-        childColumns = "owner_id",
-        onDelete = ForeignKey.CASCADE
-    ),
+@Entity(tableName = "player",
     indices = {
         @Index(value = {"player_id"}, unique = true),
-        @Index(value = {"player_name"}, unique = true),
-        @Index(value = {"owner_id"}, unique = true)
+        @Index(value = {"player_name"}, unique = true)
     })
 public class Player {
 
@@ -41,9 +34,6 @@ public class Player {
   private int delta;
   private float exit_velo;
   private float launch_angle;
-
-  // TODO: 7/8/2025 Ask Nick about setters when accessing data from external sources?
-
 
   @NonNull
   public String getPlayer_id() {

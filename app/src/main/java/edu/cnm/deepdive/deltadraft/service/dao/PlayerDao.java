@@ -5,10 +5,9 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
-import edu.cnm.deepdive.deltadraft.model.entity.Team;
-import edu.cnm.deepdive.deltadraft.model.entity.User;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.util.List;
@@ -50,13 +49,17 @@ public interface PlayerDao {
   @Delete
   Single<Integer> delete(List<Player> players);
 
+  //Players by player_id
+  @Query("SELECT * FROM player WHERE player_id = :player")
+  LiveData<Player> getPlayerById(long player);
 
-
-//  @Query("SELECT * FROM user_team WHERE player_name = :playerId")
-//  LiveData<Player> select(long playerId);
-//
-//
-//  @Query("SELECT * FROM user_team ORDER BY player_name ASC")
-//  LiveData<List<Team>> selectAll();
+//Players by Team
+  @Transaction
+  @Query("""
+  SELECT p.* FROM player p
+  INNER JOIN player_team pt ON p.player_id = pt.player_id
+  WHERE pt.team_id = :teamId
+""")
+  LiveData<List<Player>> getPlayersOnTeam(long teamId);
 
 }

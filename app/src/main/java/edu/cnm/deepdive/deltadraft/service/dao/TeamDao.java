@@ -53,7 +53,4 @@ public interface TeamDao {
 
   // TODO: 7/9/2025 Refine and implement SQL Query
 
-  @Query("SELECT * FROM team_user_team WHERE owner_id = :userId")
-  LiveData<List<Team>> select(long userId);
-
 }

@@ -37,7 +37,7 @@ public class ListFragment extends Fragment implements MenuProvider {
 
 
   @Override
-  // TODO: 6/16/2025
+  // TODO: 7/9/2025 Implement onCreate recyclerview for players
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     FragmentActivity activity = requireActivity();

@@ -3,24 +3,15 @@ package edu.cnm.deepdive.deltadraft.model.entity;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import java.time.Instant;
 
-@Entity(tableName = "team_user_team",
-    foreignKeys = @ForeignKey (
-      entity = User.class,
-        parentColumns = "user_id",
-        childColumns = "owner_id",
-        onDelete = ForeignKey.CASCADE
-    ),
+@Entity(tableName = "team",
     indices = {
         @Index(value = {"team_id"}, unique = true),
         @Index(value = {"team_name"}, unique = true)
     })
-
-
 
 public class Team {
   @PrimaryKey(autoGenerate = true)

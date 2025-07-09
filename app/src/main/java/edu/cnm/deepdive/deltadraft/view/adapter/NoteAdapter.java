@@ -82,6 +82,7 @@ public class NoteAdapter extends Adapter<ViewHolder> {
       this.listener = listener;
     }
 
+      // TODO: 6/17/2025 Display Thumbnail
     void bind(int position, NoteWithImages note) {
       binding.title.setText(note.getTitle());
       String noteDescription = note.getDescription();
@@ -90,7 +91,6 @@ public class NoteAdapter extends Adapter<ViewHolder> {
           formatter.format(
               ZonedDateTime.ofInstant(note.getCreated(), ZoneId.systemDefault())));
       binding.thumbnail.setVisibility((View.GONE));
-      // TODO: 6/17/2025 Display Thumbnail 
       binding
           .getRoot()
           .setOnClickListener((v) -> listener.onNoteClick(note, position));
