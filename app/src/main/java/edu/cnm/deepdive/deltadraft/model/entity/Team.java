@@ -53,6 +53,30 @@ public class Team {
     return teamName;
   }
 
+  public Instant getCreated() {
+    return created;
+  }
+
+  @NonNull
+  public Instant getModified() {
+    return modified;
+  }
+
+  public Team setId(long id) {
+    this.id = id;
+    return this;
+  }
+
+  public Team setCreated(Instant created) {
+    this.created = created;
+    return this;
+  }
+
+  public Team setModified(@NonNull Instant modified) {
+    this.modified = modified;
+    return this;
+  }
+
   public Team setTeamName(@NonNull String teamName) {
     this.teamName = teamName;
     return this;

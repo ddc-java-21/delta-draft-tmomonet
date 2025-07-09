@@ -6,6 +6,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import java.time.Instant;
 
 @Entity(tableName = "user_team",
     foreignKeys = @ForeignKey(
@@ -24,6 +25,9 @@ public class Player {
   private String id;
 
   private long owner_id;
+
+  @NonNull
+  private Instant modified = Instant.now();
 
   @NonNull
   private String player_name;
@@ -89,5 +93,15 @@ public class Player {
 
   public float getLaunch_angle() {
     return launch_angle;
+  }
+
+  @NonNull
+  public Instant getModified() {
+    return modified;
+  }
+
+  public Player setModified(@NonNull Instant modified) {
+    this.modified = modified;
+    return this;
   }
 }
