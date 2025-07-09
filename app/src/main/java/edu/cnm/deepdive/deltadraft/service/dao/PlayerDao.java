@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.deltadraft.service.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -12,6 +13,7 @@ import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.util.List;
 
+@Dao
 public interface PlayerDao {
   @Insert
   Single<Long> _insert(Player player);
@@ -30,7 +32,7 @@ public interface PlayerDao {
   @Update
   Single<Integer> _update(Player player);
 
-  default Single<User> update(Player player){
+  default Single<Player> update(Player player){
     return Single
         .just(player)
         .doOnSuccess((u) -> u.setModified(Instant.now()))
@@ -40,19 +42,21 @@ public interface PlayerDao {
 
 
   @Delete
-  Single<Integer> delete(Team team);
+  Single<Integer> delete(Player player);
 
   @Delete
-  Single<Integer> delete(Team... teams);
+  Single<Integer> delete(Player... players);
 
   @Delete
-  Single<Integer> delete(List<Team> teams);
-
-  @Query("SELECT * FROM user_team WHERE owner_id = :playerId")
-  LiveData<User> select(long userId);
+  Single<Integer> delete(List<Player> players);
 
 
-  @Query("SELECT * FROM user_team ORDER BY player_name ASC")
-  LiveData<List<Team>> selectAll();
+
+//  @Query("SELECT * FROM user_team WHERE player_name = :playerId")
+//  LiveData<Player> select(long playerId);
+//
+//
+//  @Query("SELECT * FROM user_team ORDER BY player_name ASC")
+//  LiveData<List<Team>> selectAll();
 
 }

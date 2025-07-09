@@ -1,17 +1,18 @@
 package edu.cnm.deepdive.deltadraft.service.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import edu.cnm.deepdive.deltadraft.model.entity.Team;
 import edu.cnm.deepdive.deltadraft.model.entity.User;
-import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.util.List;
 
+@Dao
 public interface TeamDao {
   @Insert
   Single<Long> _insert(Team team);
@@ -25,7 +26,7 @@ public interface TeamDao {
           u.setModified(now);
         })
         .flatMap(this::_insert)
-        .doOnSuccess(team::setId)
+        .doOnSuccess(team::setTeamId)
         .map(id -> team);
   }
 
@@ -50,11 +51,9 @@ public interface TeamDao {
   @Delete
   Single<Integer> delete(List<Team> teams);
 
-  @Query("SELECT * FROM user_team WHERE owner_id = :teamId")
-  LiveData<User> select(long userId);
+  // TODO: 7/9/2025 Refine and implement SQL Query
 
-
-  @Query("SELECT * FROM user_team ORDER BY owner_id ASC")
-  LiveData<List<Team>> selectAll();
+  @Query("SELECT * FROM team_user_team WHERE owner_id = :userId")
+  LiveData<List<Team>> select(long userId);
 
 }

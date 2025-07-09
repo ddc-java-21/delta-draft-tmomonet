@@ -7,9 +7,11 @@ import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
-import edu.cnm.deepdive.deltadraft.service.NotesDatabase;
+import edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase;
 import edu.cnm.deepdive.deltadraft.service.dao.ImageDao;
 import edu.cnm.deepdive.deltadraft.service.dao.NoteDao;
+import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
+import edu.cnm.deepdive.deltadraft.service.dao.TeamDao;
 import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
 import edu.cnm.deepdive.deltadraft.service.util.Preloader;
 import javax.inject.Singleton;
@@ -20,27 +22,39 @@ public class DatabaseModule {
 
   @Provides
   @Singleton
-  NotesDatabase provideDatabase(@ApplicationContext Context context, Preloader preloader) {
-    return Room.databaseBuilder(context, NotesDatabase.class, NotesDatabase.getName())
+  DeltaDraftDatabase provideDatabase(@ApplicationContext Context context, Preloader preloader) {
+    return Room.databaseBuilder(context, DeltaDraftDatabase.class, DeltaDraftDatabase.getName())
         .addCallback(preloader)
         .build();
   }
 
   @Provides
   @Singleton
-  UserDao provideUserDao(NotesDatabase database) {
+  UserDao provideUserDao(DeltaDraftDatabase database) {
     return database.getUserDao();
   }
 
   @Provides
   @Singleton
-  NoteDao provideNoteDao(NotesDatabase database) {
+  PlayerDao providePlayerDao(DeltaDraftDatabase database) {
+    return database.getPlayerDao();
+  }
+
+  @Provides
+  @Singleton
+  TeamDao provideTeamDao(DeltaDraftDatabase database) {
+    return database.getTeamDao();
+  }
+
+  @Provides
+  @Singleton
+  NoteDao provideNoteDao(DeltaDraftDatabase database) {
     return database.getNoteDao();
   }
 
   @Provides
   @Singleton
-  ImageDao provideImageDao(NotesDatabase database) {
+  ImageDao provideImageDao(DeltaDraftDatabase database) {
     return database.getImageDao();
   }
 }

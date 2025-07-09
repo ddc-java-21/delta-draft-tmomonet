@@ -8,7 +8,7 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import java.time.Instant;
 
-@Entity(tableName = "user_team",
+@Entity(tableName = "team_user_team",
     foreignKeys = @ForeignKey (
       entity = User.class,
         parentColumns = "user_id",
@@ -25,7 +25,7 @@ import java.time.Instant;
 public class Team {
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "team_id", collate = ColumnInfo.NOCASE)
-  private long id;
+  private long teamId;
 
   @NonNull
   @ColumnInfo(name = "team_name", collate = ColumnInfo.NOCASE)
@@ -40,8 +40,8 @@ public class Team {
   @NonNull
   private Instant modified = Instant.now();
 
-  public long getId() {
-    return id;
+  public long getTeamId() {
+    return teamId;
   }
 
   public long getOwnerId() {
@@ -62,24 +62,24 @@ public class Team {
     return modified;
   }
 
-  public Team setId(long id) {
-    this.id = id;
-    return this;
+  public void setOwnerId(long ownerId) {
+    this.ownerId = ownerId;
   }
 
-  public Team setCreated(Instant created) {
+  public void setTeamId(long teamId) {
+    this.teamId = teamId;
+  }
+
+  public void setCreated(Instant created) {
     this.created = created;
-    return this;
   }
 
-  public Team setModified(@NonNull Instant modified) {
+  public void setModified(@NonNull Instant modified) {
     this.modified = modified;
-    return this;
   }
 
-  public Team setTeamName(@NonNull String teamName) {
+  public void setTeamName(@NonNull String teamName) {
     this.teamName = teamName;
-    return this;
   }
 
 
