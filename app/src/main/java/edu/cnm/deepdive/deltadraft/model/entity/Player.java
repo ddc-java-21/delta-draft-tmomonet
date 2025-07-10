@@ -30,7 +30,7 @@ public class Player {
   private String team_mlb;
   private float avg;
   private float babip;
-  private float barrel_rate;
+  private float hardHit;
   private int delta;
   private float exit_velo;
   private float launch_angle;
@@ -106,12 +106,12 @@ public class Player {
     this.babip = babip;
   }
 
-  public float getBarrel_rate() {
-    return barrel_rate;
+  public float getHardHit() {
+    return hardHit;
   }
 
-  public void setBarrel_rate(float barrel_rate) {
-    this.barrel_rate = barrel_rate;
+  public void setHardHit(float hardHit) {
+    this.hardHit = hardHit;
   }
 
   public int getDelta() {

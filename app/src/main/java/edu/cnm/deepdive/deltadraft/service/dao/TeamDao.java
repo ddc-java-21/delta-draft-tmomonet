@@ -51,6 +51,9 @@ public interface TeamDao {
   @Delete
   Single<Integer> delete(List<Team> teams);
 
-  // TODO: 7/9/2025 Refine and implement SQL Query
+  @Query("SELECT * FROM team WHERE team_id = :teamId")
+  LiveData<Team> select(long teamId);
+
+  // TODO: 7/10/2025 List<Team> teams by owner
 
 }

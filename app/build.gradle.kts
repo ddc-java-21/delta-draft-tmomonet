@@ -95,6 +95,9 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
 
+    // Jsoup
+    implementation("org.jsoup:jsoup:1.21.1")
+
     // Lifecycle (LiveData and ViewModel) libraries
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata)
@@ -161,7 +164,7 @@ dependencies {
 }
 
 roomDdl {
-    source.set(project.file("$projectDir/schemas/edu.cnm.deepdive.notes.service.NotesDatabase/1.json"))
+    source.set(project.file("$projectDir/schemas/edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase/1.json"))
     destination.set(project.file("$projectDir/../docs/sql/ddl.sql"))
 }
 

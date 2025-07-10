@@ -20,6 +20,7 @@ import javax.inject.Singleton;
 @Singleton
 public class NoteRepository {
 
+  // TODO: 7/10/2025 begin deleting methods 
   private final NoteDao noteDao;
   private final ImageDao imageDao;
   private final Scheduler scheduler;

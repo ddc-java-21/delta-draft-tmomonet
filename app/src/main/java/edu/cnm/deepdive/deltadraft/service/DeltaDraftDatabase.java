@@ -1,7 +1,9 @@
 package edu.cnm.deepdive.deltadraft.service;
 
+import android.content.Context;
 import android.net.Uri;
 import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import edu.cnm.deepdive.deltadraft.model.entity.Image;
@@ -27,6 +29,7 @@ import java.time.Instant;
 @TypeConverters({Converters.class})
 public abstract class DeltaDraftDatabase extends androidx.room.RoomDatabase {
 
+  private static volatile DeltaDraftDatabase instance;
   static final int VERSION = 1;
   private static final String NAME = "deltadraft-db";
   public static String getName() {
@@ -66,5 +69,22 @@ public abstract class DeltaDraftDatabase extends androidx.room.RoomDatabase {
       return (value == null) ? null : Uri.parse(value);
     }
   }
+
+  public static DeltaDraftDatabase getInstance(Context context) {
+    if (instance == null) {
+      synchronized (DeltaDraftDatabase.class) {
+        if (instance == null) {
+          instance = Room.databaseBuilder(
+              context.getApplicationContext(),
+              DeltaDraftDatabase.class,
+              "delta_draft_db"
+          ).build();
+        }
+      }
+    }
+    return instance;
+  }
+
+
 
 }

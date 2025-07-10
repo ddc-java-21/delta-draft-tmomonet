@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
@@ -51,7 +52,7 @@ public interface PlayerDao {
 
   //Players by player_id
   @Query("SELECT * FROM player WHERE player_id = :player")
-  LiveData<Player> getPlayerById(long player);
+  LiveData<Player> getPlayerById(String player);
 
 //Players by Team
   @Transaction
@@ -62,4 +63,17 @@ public interface PlayerDao {
 """)
   LiveData<List<Player>> getPlayersOnTeam(long teamId);
 
+  // TODO: 7/10/2025 See below
+// TODO: 7/10/2025 test 1,2
+  @Query("SELECT COUNT(*) FROM player")
+  int count();
+
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  Single<List<Long>> insertAll(List<Player> players);
+
+  //PlayersByOwner?
+
+  //Image Queries?
+
+  //Players by StatQualifiers?
 }
