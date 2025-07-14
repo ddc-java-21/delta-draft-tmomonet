@@ -16,10 +16,8 @@ order: 0
 ## Summary
 
 Delta Draft is a new exciting kit in the arsenal of fantasy baseball aficionados, Major League
-bloggers,
-casual fans, and sabermetricians alike. Leveraging the power of baseball-reference.com, you can
-access stats
-faster than an Aroldis Chapman four-seam fastball.
+bloggers, casual fans, and sabermetricians alike. Leveraging the power of baseball-reference.com, you can
+access stats faster than an Aroldis Chapman four-seam fastball.
 
 ### Intuitive UI
 
