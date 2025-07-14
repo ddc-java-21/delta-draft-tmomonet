@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setUpUI();
     setUpNavigation();
-    populateIfEmpty();
   }
 
   @Override
@@ -54,22 +53,4 @@ public class MainActivity extends AppCompatActivity {
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfig);
   }
 
-  private void populateIfEmpty() {
-    Executors.newSingleThreadExecutor().execute(() -> {
-      PlayerDao dao = DeltaDraftDatabase.getInstance(this).getPlayerDao();
-
-      // Only scrape + insert if table is empty
-      if (dao.count() == 0) {
-        try {
-          List<Player> players = PlayerScraper.scrapePlayers();
-          dao.insertAll(players);
-          Log.i("Populate", "Inserted " + players.size() + " players.");
-        } catch (IOException e) {
-          Log.e("Populate", "Scraping failed", e);
-        }
-      } else {
-        Log.i("Populate", "Players already exist in DB. Skipping scrape.");
-      }
-    });
-  }
 }

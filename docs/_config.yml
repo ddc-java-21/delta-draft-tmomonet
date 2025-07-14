@@ -10,10 +10,11 @@ prev_next_navigation:
 
 # TODO Modify the contents below for the specific project. NOTE THE INDENTATION!
 
-title: "Android App Starter"
-description: "Trust me, it'll be cool!"
+title: "Delta Draft"
+description: "Dominate your draft with Delta Draft! Using the power of baseball-reference, 
+advanced stats, and custom queries, change up your draft strategy."
 author:
-  name: "DDC Student"
+  name: "Travis Hollins"
 
 # Do not change the following line.
   copyright: true
