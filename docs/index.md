@@ -85,6 +85,7 @@ raking the past season, but underlying metrics point to a hard regression.
 * Team
     * Display Name
     * Lists of Players
+    * Timestamp of Team creation and update
 
 ## Device/external services
 
@@ -94,7 +95,9 @@ raking the past season, but underlying metrics point to a hard regression.
 
 ## Stretch goals and possible enhancements
 
-If you can identify functional elements of the software that you think might not be achievable in
-the scope of the project, but which would nonetheless add significant value if you were able to
-include them, list them here. For now, we recommend listing them in order of complexity/amount of
-work, from the least to the most.
+* Yahoo Fantasy API access for average draft position and ranking based on league-specific stat values,
+or accounting for different scoring systems.
+* Baseball savant scraping for additional statistics such as sprint speed, barrel rate, (possible spray chart
+implementation), hitter performance against certain pitch types
+* Pitcher stats and analysis
+* Suggested queries and explanations for conclusions that can be reached from combinations of stats
