@@ -7,67 +7,94 @@ order: 0
 {% include ddc-abbreviations.md %}
 
 ## Page contents
+
 {:.no_toc}
 
 - ToC
-{:toc}
+  {:toc}
 
 ## Summary
 
-Delta Draft is a new exciting kit in the arsenal of fantasy baseball aficionados, Major League bloggers, 
-casual fans, and sabermetricians alike. Leveraging the power of baseball-reference.com, you can access stats
-faster than an Aroldis Chapman four-seam fastball. 
+Delta Draft is a new exciting kit in the arsenal of fantasy baseball aficionados, Major League
+bloggers,
+casual fans, and sabermetricians alike. Leveraging the power of baseball-reference.com, you can
+access stats
+faster than an Aroldis Chapman four-seam fastball.
 
-# Intuitive UI
+### Intuitive UI
 
-You can use the app to ask all the right questions, sort players based on criteria of interest, and 
-for the fantasy baseball fiends, filter players that may or may not fit your draft strategy. Incorporating
-traditional metrics such as on-base percentage as well as advanced statistics such as hard hit rate and exit velocity, 
-you can target your next draft breakout. Save players you find interesting. Put together teams of your draft darlings so
+You can use the app to ask all the right questions, sort players based on criteria of interest, and
+for the fantasy baseball fiends, filter players that may or may not fit your draft strategy.
+Incorporating
+traditional metrics such as on-base percentage as well as advanced statistics such as hard hit rate
+and exit velocity,
+you can target your next draft breakout. Save players you find interesting. Put together teams of
+your draft darlings so
 you never find yourself scrambling when you're on the clock.
 
-# What is Delta
+### What is Delta
 
-The crown jewel of the statistical diamond is Delta, the difference between batting average on balls in play,
-"BABIP", and batting average. High variance between the two can point to a player experiencing bad luck 
+The crown jewel of the statistical diamond is Delta, the difference between batting average on balls
+in play,
+"BABIP", and batting average. High variance between the two can point to a player experiencing bad
+luck
 and hard outs, primed to succeed to the surprise of your league mates, or a player that seemed to be
-raking the past season, but underlying metrics point to a hard regression. 
+raking the past season, but underlying metrics point to a hard regression.
 
 ## Intended users and user stories
 
-Write a bullet list here, including at least 2 different types of intended users. Make it reasonably specific; simply saying "Anyone who likes games" (for example) is not sufficiently specific.
+* Fantasy Fanatics
 
-For each type of intended user, include at least 1 _user story_. A user story is usually just 1 simple sentence (no more than 2 sentences), in the voice of the intended user, stating a specific task that the user performs using the app, and the benefit that will be obtained. The simplest user stories take the form 
+> As a member of several workplace fantasy leagues, I want to make sure that my draft goes off without
+> a hitch so I can finally end Jeff in accounting's reign of terror and take home the title.
 
-> As a <type of intended user (_who_)> I want to <use of specific feature or functionality (_what_)> so that <benefit (_why_).
+* Casual Fans
 
-Please avoid writing too much for the user story. In particular, if the way the user story is written makes it difficult to see the _who_, _what_, and _why_, then you probably need to re-write it more directly. (On the other hand, a user story should not simply be a re-statement of the intended user description.)
+> As a transplant to Cincinnati, I've been looking to meet new people and find new hobbies. I decided
+> on baseball, and I want to be informed so that I can talk ball with my new friends.
 
-Here is one (silly) example of an intended user, along with a user story. Please note not only the conceptual structure, but the Markdown syntax used.
+* Bloggers
 
-* People who like to use randomness in their decision-making.
-
-    > As someone who enjoys randomness in my life, I use this app to flip a virtual coin or roll one or more virtual dice, so that I can base my decisions on randomness without having to carry coins or dice in my pockets.
+> I write for a blog about my local, small market MLB team and during Hot Stove season, I want to
+> have accurate, statistically backed opinions on new signings or trade acquisitions.
 
 ## Functionality
 
-List (using a bullet list---or ordered list, if order is relevant) the key functional aspects that will be provided by the app---i.e., tell us what the user will be able to do using the app. This should not simply be a re-statement of the [summary](#summary), but should instead provide a more specific articulation of the functionality and user experience. 
+* Search and Browse MLB players with access to comprehensive statistics from baseball-reference.com
+* Sort players by various performance metrics (e.g., OBP, HR, AVG, Exit Velocity, etc.)
+* Save players for quick access or tracking
+* Highlight players with notable delta values to identify potential breakout or regression candidates
+* Compare and contrast stats across seasons to monitor improvement or decline
+* Offline access to previously loaded data
+* Google sign-in for security and no need to create an account
+* Responsive, easy to use UI
 
 ## Persistent data
 
-Using a bullet list, list what content will be stored on the Android device. This should include any information that users of your app would expect to be maintained (i.e., without connection to a server) across multiple sessions of use.
-
-For example, this starter app already includes the necessary data model elements and data-access code to store & retrieve the following 
-  
 * User
     * Display name
     * OAuth2.0 identifier
     * Timestamp of first login to the app
-    
+    * List of Teams/Favorited Players
+
+* Player
+    * Player Name
+    * baseball-reference URL
+    * Standard/Advanced Statistics
+
+* Team
+    * Display Name
+    * Lists of Players
+
 ## Device/external services
 
-If the client component will need to access special services of the device (e.g., sensors, contacts, messaging), list them here using a bullet list. Also, if the client component will need to access already-existing external services (e.g., real-time weather data, Open Movie Database, Open Trivia Database), those should also be listed here; any such references to external services should include links to the main page or API description page for the service.
+* Google Sign-in
+* Oauth2 Authentication
+* Baseball Reference {% link https://www.baseball-reference.com/ %}
 
-## Stretch goals and possible enhancements 
+## Stretch goals and possible enhancements
 
-If you can identify functional elements of the software that you think might not be achievable in the scope of the project, but which would nonetheless add significant value if you were able to include them, list them here. For now, we recommend listing them in order of complexity/amount of work, from the least to the most.
+If you can identify functional elements of the software that you think might not be achievable in
+the scope of the project, but which would nonetheless add significant value if you were able to
+include them, list them here. For now, we recommend listing them in order of complexity/amount of
+work, from the least to the most.
