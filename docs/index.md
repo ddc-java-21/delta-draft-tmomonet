@@ -10,7 +10,7 @@ order: 0
 
 {:.no_toc}
 
-- ToC
+- TOC
   {:toc}
 
 ## Summary
