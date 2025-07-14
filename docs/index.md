@@ -89,7 +89,7 @@ raking the past season, but underlying metrics point to a hard regression.
 
 * Google Sign-in
 * Oauth2 Authentication
-* Baseball Reference {% link https://www.baseball-reference.com/ %}
+* [Baseball Reference](https://www.baseball-reference.com/)
 
 ## Stretch goals and possible enhancements
 
