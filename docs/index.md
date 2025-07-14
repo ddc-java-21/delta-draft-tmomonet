@@ -14,7 +14,24 @@ order: 0
 
 ## Summary
 
-Replace this paragraph with one or more paragraphs summarizing the purpose and operation of the Android app you propose to develop in this project.
+Delta Draft is a new exciting kit in the arsenal of fantasy baseball aficionados, Major League bloggers, 
+casual fans, and sabermetricians alike. Leveraging the power of baseball-reference.com, you can access stats
+faster than an Aroldis Chapman four-seam fastball. 
+
+# Intuitive UI
+
+You can use the app to ask all the right questions, sort players based on criteria of interest, and 
+for the fantasy baseball fiends, filter players that may or may not fit your draft strategy. Incorporating
+traditional metrics such as on-base percentage as well as advanced statistics such as hard hit rate and exit velocity, 
+you can target your next draft breakout. Save players you find interesting. Put together teams of your draft darlings so
+you never find yourself scrambling when you're on the clock.
+
+# What is Delta
+
+The crown jewel of the statistical diamond is Delta, the difference between batting average on balls in play,
+"BABIP", and batting average. High variance between the two can point to a player experiencing bad luck 
+and hard outs, primed to succeed to the surprise of your league mates, or a player that seemed to be
+raking the past season, but underlying metrics point to a hard regression. 
 
 ## Intended users and user stories
 
