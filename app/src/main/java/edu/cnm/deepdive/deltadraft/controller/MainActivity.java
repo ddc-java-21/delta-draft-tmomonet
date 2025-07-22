@@ -13,7 +13,7 @@ import edu.cnm.deepdive.deltadraft.databinding.ActivityMainBinding;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
 import edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
-import edu.cnm.deepdive.deltadraft.service.scraper.PlayerScraper;
+import edu.cnm.deepdive.deltadraft.service.scraper.PlayerScraper01;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
       // Only scrape + insert if table is empty
       if (dao.count() == 0) {
         try {
-          List<Player> players = PlayerScraper.scrapePlayers();
+          List<Player> players = PlayerScraper01.scrapePlayers();
           dao.insertAll(players);
           Log.i("Populate", "Inserted " + players.size() + " players.");
         } catch (IOException e) {
