@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.deltadraft.service.util;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
@@ -11,7 +12,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext;
 import edu.cnm.deepdive.deltadraft.R;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
-import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.io.IOException;
@@ -30,7 +30,6 @@ public class Preloader extends RoomDatabase.Callback {
 
   @Inject
   Preloader(@ApplicationContext Context context,
-      Provider<UserDao> userDaoProvider,
       Provider<PlayerDao> playerDaoProvider) {
     this.context = context;
     this.playerDaoProvider = playerDaoProvider;
@@ -39,6 +38,7 @@ public class Preloader extends RoomDatabase.Callback {
   @Override
   public void onCreate(@NonNull SupportSQLiteDatabase db) {
     super.onCreate(db);
+    Log.d("Preloader", "Database onCreate triggered");
     try (
         InputStream input = context.getResources().openRawResource(R.raw.advanced2025);
         Reader reader = new InputStreamReader(input);
@@ -49,11 +49,10 @@ public class Preloader extends RoomDatabase.Callback {
       while ((line = csv.readNext()) != null) {
         // parse columns
         Player p = new Player();
-        p.setPlayerId(line[35]);
-        p.setPlayerName(line[1]);
-        p.setPosition(line[2]);
+        p.setPlayerId(line[34]);
+        p.setPlayerName(line[0]);
+        p.setPosition(line[1]);
         players.add(p);
-        System.out.println(p.getPlayerName());
       }
       Scheduler scheduler = Schedulers.io();
       PlayerDao playerDao = playerDaoProvider.get();
@@ -61,6 +60,7 @@ public class Preloader extends RoomDatabase.Callback {
           .subscribeOn(scheduler)
           .subscribe();
     } catch (IOException | CsvValidationException e) {
+      Log.e("Preloader", "Failed to load CSV", e);
       throw new RuntimeException(e);
     }
   }

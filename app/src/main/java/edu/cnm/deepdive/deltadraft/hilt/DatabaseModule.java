@@ -8,8 +8,6 @@ import dagger.hilt.InstallIn;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 import edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase;
-import edu.cnm.deepdive.deltadraft.service.dao.ImageDao;
-import edu.cnm.deepdive.deltadraft.service.dao.NoteDao;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
 import edu.cnm.deepdive.deltadraft.service.dao.TeamDao;
 import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
