@@ -46,15 +46,4 @@ public class DatabaseModule {
     return database.getTeamDao();
   }
 
-  @Provides
-  @Singleton
-  NoteDao provideNoteDao(DeltaDraftDatabase database) {
-    return database.getNoteDao();
-  }
-
-  @Provides
-  @Singleton
-  ImageDao provideImageDao(DeltaDraftDatabase database) {
-    return database.getImageDao();
-  }
 }

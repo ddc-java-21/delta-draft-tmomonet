@@ -20,7 +20,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.deltadraft.databinding.FragmentListBinding;
 import edu.cnm.deepdive.deltadraft.view.adapter.NoteAdapter;
 import edu.cnm.deepdive.deltadraft.viewmodel.LogInViewModel;
-import edu.cnm.deepdive.deltadraft.viewmodel.NoteViewModel;
 import edu.cnm.deepdive.deltadraft.R;
 
 import javax.inject.Inject;
@@ -32,7 +31,6 @@ public class ListFragment extends Fragment implements MenuProvider {
   NoteAdapter adapter;
 
   private FragmentListBinding binding;
-  private NoteViewModel viewModel;
   private LogInViewModel loginViewModel;
 
 
@@ -43,10 +41,6 @@ public class ListFragment extends Fragment implements MenuProvider {
     FragmentActivity activity = requireActivity();
     ViewModelProvider provider = new ViewModelProvider(activity);
     LifecycleOwner owner = getViewLifecycleOwner();
-    viewModel = provider.get(NoteViewModel.class);
-    viewModel
-        .getNotes()
-        .observe(owner, (notes) -> adapter.setNotes(notes));
     loginViewModel = provider.get(LogInViewModel.class);
     loginViewModel
         .getAccount()
@@ -66,10 +60,6 @@ public class ListFragment extends Fragment implements MenuProvider {
       @Nullable Bundle savedInstanceState) {
     binding = FragmentListBinding.inflate(inflater, container, false);
     binding.placeHolder.setAdapter(adapter);
-    adapter.setListener((note, position) -> Navigation.findNavController(binding.getRoot())
-        .navigate(ListFragmentDirections.showDetails(note.getId())));
-    binding.addNote.setOnClickListener((v) -> Navigation.findNavController(binding.getRoot())
-        .navigate(ListFragmentDirections.showDetails(0)));
     return binding.getRoot();
   }
 

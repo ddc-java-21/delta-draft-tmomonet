@@ -42,12 +42,6 @@ public abstract class DeltaDraftDatabase extends androidx.room.RoomDatabase {
 
   public abstract TeamDao getTeamDao();
 
-  // TODO: 7/9/2025 Phase out implementation of prior daos
-
-  public abstract NoteDao getNoteDao();
-
-  public abstract ImageDao getImageDao();
-
   public static class Converters {
     @TypeConverter
     public static Long fromInstant(Instant value) {

@@ -136,6 +136,9 @@ dependencies {
     // OkHttp logging dependency
     implementation(libs.logging.interceptor)
 
+    // OpenCSV
+    implementation("com.opencsv:opencsv:5.11.2")
+
     // Libraries for JVM-based testing.
     testImplementation(libs.junit.api)
     testImplementation(libs.junit.params)

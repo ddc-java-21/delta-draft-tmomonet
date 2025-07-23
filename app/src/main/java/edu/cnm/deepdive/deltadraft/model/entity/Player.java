@@ -2,6 +2,7 @@ package edu.cnm.deepdive.deltadraft.model.entity;
 
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
@@ -17,48 +18,52 @@ public class Player {
 
   @PrimaryKey(autoGenerate = false)
   @NonNull
-  private String player_id;
+  @ColumnInfo(name = "player_id", collate = ColumnInfo.NOCASE)
+  private String playerId;
 
-  private long owner_id;
+  @ColumnInfo(name = "owner_id", index = true)
+  private long ownerId;
 
   @NonNull
   private Instant modified = Instant.now();
 
   @NonNull
-  private String player_name;
+  @ColumnInfo(name = "player_name", collate = ColumnInfo.NOCASE)
+  private String playerName;
+
   private String position;
-  private String team_mlb;
+  @ColumnInfo(name = "team_mlb", index = true)
+  private String teamMlb;
   private float avg;
   private float babip;
   private float hardHit;
   private int delta;
-  private float exit_velo;
-  private float launch_angle;
+  private float exitVelo;
 
   @NonNull
-  public String getPlayer_id() {
-    return player_id;
+  public String getPlayerId() {
+    return playerId;
   }
 
   public String getId() {
-    return player_id;
+    return playerId;
   }
 
-  public long getOwner_id() {
-    return owner_id;
+  public long getOwnerId() {
+    return ownerId;
   }
 
   @NonNull
-  public String getPlayer_name() {
-    return player_name;
+  public String getPlayerName() {
+    return playerName;
   }
 
-  public void setPlayer_id(@NonNull String player_id) {
-    this.player_id = player_id;
+  public void setPlayerId(@NonNull String playerId) {
+    this.playerId = playerId;
   }
 
-  public void setOwner_id(long owner_id) {
-    this.owner_id = owner_id;
+  public void setOwnerId(long ownerId) {
+    this.ownerId = ownerId;
   }
 
   @NonNull
@@ -70,8 +75,8 @@ public class Player {
     this.modified = modified;
   }
 
-  public void setPlayer_name(@NonNull String player_name) {
-    this.player_name = player_name;
+  public void setPlayerName(@NonNull String playerName) {
+    this.playerName = playerName;
   }
 
   public String getPosition() {
@@ -82,12 +87,12 @@ public class Player {
     this.position = position;
   }
 
-  public String getTeam_mlb() {
-    return team_mlb;
+  public String getTeamMlb() {
+    return teamMlb;
   }
 
-  public void setTeam_mlb(String team_mlb) {
-    this.team_mlb = team_mlb;
+  public void setTeamMlb(String team_mlb) {
+    this.teamMlb = teamMlb;
   }
 
   public float getAvg() {
@@ -122,19 +127,12 @@ public class Player {
     this.delta = delta;
   }
 
-  public float getExit_velo() {
-    return exit_velo;
+  public float getExitVelo() {
+    return exitVelo;
   }
 
-  public void setExit_velo(float exit_velo) {
-    this.exit_velo = exit_velo;
+  public void setExitVelo(float exitVelo) {
+    this.exitVelo = exitVelo;
   }
 
-  public float getLaunch_angle() {
-    return launch_angle;
-  }
-
-  public void setLaunch_angle(float launch_angle) {
-    this.launch_angle = launch_angle;
-  }
 }

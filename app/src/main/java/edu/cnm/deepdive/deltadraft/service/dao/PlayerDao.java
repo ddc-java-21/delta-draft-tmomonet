@@ -71,6 +71,7 @@ public interface PlayerDao {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
   Single<List<Long>> insertAll(List<Player> players);
 
+
   //PlayersByOwner?
 
   //Image Queries?

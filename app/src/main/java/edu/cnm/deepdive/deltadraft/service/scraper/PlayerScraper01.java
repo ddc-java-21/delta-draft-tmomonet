@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
-public class PlayerScraper {
+public class PlayerScraper01 {
 
   private static final String STANDARD_URL =
       "https://www.baseball-reference.com/leagues/majors/2025-standard-batting.shtml";
@@ -126,15 +126,14 @@ public class PlayerScraper {
       String position = parsePrimaryPosition(rawPos);
 
       Player player = new Player();
-      player.setPlayer_id(playerId);
-      player.setPlayer_name(playerName);
-      player.setTeam_mlb(team != null ? team : "");
+      player.setPlayerId(playerId);
+      player.setPlayerName(playerName);
+      player.setTeamMlb(team != null ? team : "");
       player.setAvg(avg);
       player.setBabip(babip);
       player.setDelta(delta);
       player.setHardHit(hardHit);
-      player.setExit_velo(ev);
-      player.setLaunch_angle(launch);
+      player.setExitVelo(ev);
       player.setPosition(position);
       player.setModified(Instant.now());
 

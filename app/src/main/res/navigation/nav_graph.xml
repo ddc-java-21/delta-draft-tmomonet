@@ -38,24 +38,13 @@
     tools:layout="@layout/fragment_list">
     <action
       android:id="@+id/show_details"
-      app:destination="@id/details_fragment"/>
+      app:destination="@id/login_fragment"/>
     <action
       android:id="@+id/show_pre_login"
       app:destination="@id/pre_login_fragment"
       app:popUpTo="@id/nav_graph"/>
   </fragment>
 
-  <fragment
-    android:id="@+id/details_fragment"
-    android:name="edu.cnm.deepdive.deltadraft.controller.DetailsFragment"
-    android:label="@string/details_fragment_label"
-    tools:layout="@layout/fragment_details">
-
-    <argument
-      android:name="note_id"
-      app:argType="long"/>
-
-  </fragment>
 
   <!--  TODO Add Silent sign-in, sign in, note detail and other req'd fragments and actions-->
 
