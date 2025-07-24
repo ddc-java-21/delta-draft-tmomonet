@@ -34,7 +34,7 @@
   <fragment
     android:id="@+id/search_fragment"
     android:name="edu.cnm.deepdive.deltadraft.controller.SearchFragment"
-    android:label="@string/list_fragment_name"
+    android:label="@string/search_fragment_name"
     tools:layout="@layout/fragment_search">
     <action
       android:id="@+id/show_details"
