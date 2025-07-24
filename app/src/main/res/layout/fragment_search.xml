@@ -12,8 +12,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:listitem="@layout/item_note"/>
-  
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-66dp"
+    tools:listitem="@layout/item_player"/>
   <com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/add_note"
     android:layout_width="wrap_content"

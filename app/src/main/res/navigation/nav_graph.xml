@@ -35,7 +35,7 @@
     android:id="@+id/list_fragment"
     android:name="edu.cnm.deepdive.deltadraft.controller.ListFragment"
     android:label="@string/list_fragment_name"
-    tools:layout="@layout/fragment_list">
+    tools:layout="@layout/fragment_search">
     <action
       android:id="@+id/show_details"
       app:destination="@id/login_fragment"/>

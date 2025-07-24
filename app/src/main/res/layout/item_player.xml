@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:padding="@dimen/half_static_spacing"
+  android:layout_margin="@dimen/half_static_spacing"
+  android:clickable="true"
+  android:focusable="true"
+  android:background="?attr/selectableItemBackground"
+  app:cardCornerRadius="@dimen/half_static_spacing"
+  app:cardElevation="@dimen/half_static_spacing">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/half_dynamic_spacing">
+
+    <TextView
+      android:id="@+id/player_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      style="@style/ListItemTitle"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toEndOf="@id/thumbnail"
+      app:layout_constraintEnd_toStartOf="@id/stats_scroll"
+      app:layout_constraintHorizontal_weight="@integer/title_weight"
+      tools:text="Player Name"/>
+
+
+    <TextView
+      android:id="@+id/pos"
+      android:layout_width="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toEndOf="@id/thumbnail"
+      app:layout_constraintEnd_toStartOf="@id/team_name"
+      app:layout_constraintTop_toBottomOf="@id/player_name"
+      app:layout_constraintHorizontal_weight="@integer/created_weight"
+      tools:text="Pos"/>
+
+    <TextView
+      android:id="@+id/team_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      app:layout_constraintStart_toEndOf="@id/pos"
+      app:layout_constraintEnd_toStartOf="@id/stats_scroll"
+      app:layout_constraintTop_toBottomOf="@id/player_name"
+      app:layout_constraintHorizontal_weight="@integer/created_weight"
+      tools:text="MLB"/>
+
+      <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/half_static_spacing"
+        android:minLines="@integer/min_description_lines"
+        android:maxLines="@integer/max_description_lines"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_name"
+        app:layout_constraintEnd_toStartOf="@id/thumbnail"
+        app:layout_constraintHorizontal_weight="@integer/title_weight"
+        tools:text="a Series of complicated descriptions."
+        />
+
+    <ImageView
+      android:id="@+id/thumbnail"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
+      android:scaleType="fitCenter"
+      android:adjustViewBounds="true"
+      android:layout_marginHorizontal="@dimen/half_static_spacing"
+      android:layout_marginBottom="@dimen/half_static_spacing"
+      android:layout_marginTop="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/player_name"
+      tools:src="@android:drawable/gallery_thumb"
+      app:layout_constraintHorizontal_weight="@integer/created_weight"
+      tools:ignore="ContentDescription"/>
+
+<!--    ADD LOGIC TO ADD PLAYERS THUMB-->
+    <HorizontalScrollView
+      android:id="@+id/stats_scroll"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:scrollbars="horizontal"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintStart_toEndOf="@id/player_name"
+      app:layout_constraintEnd_toEndOf="parent"
+      >
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Example views inside the horizontal scroll -->
+
+        <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/batting_average"/>
+        <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/babip" />
+
+        <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/delta"/>
+        <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/hard_hit_percentage" />
+
+        <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/exit_velo" />
+
+        <!-- Add more views as needed -->
+
+      </LinearLayout>
+    </HorizontalScrollView>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

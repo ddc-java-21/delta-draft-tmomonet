@@ -50,8 +50,8 @@ public class Preloader extends RoomDatabase.Callback {
         // parse columns
         Player p = new Player();
         p.setPlayerId(line[34]);
-        p.setPlayerName(line[0]);
-        p.setPosition(line[1]);
+        p.setPlayerName(line[1]);
+        p.setPosition(line[32]);
         players.add(p);
       }
       Scheduler scheduler = Schedulers.io();

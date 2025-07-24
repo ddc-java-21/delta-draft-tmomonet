@@ -12,4 +12,9 @@
   <string name="add_note_description">Create New Note</string>
   <string name="sign_in_failure_message">Unable to sign in in with credentials</string>
   <string name="sign_out_title">Sign Out</string>
+  <string name="babip">BABIP</string>
+  <string name="batting_average">AVG</string>
+  <string name="delta">DELTA</string>
+  <string name="hard_hit_percentage">Hard Hit %</string>
+  <string name="exit_velo">Exit Velocity</string>
 </resources>
