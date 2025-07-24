@@ -3,6 +3,7 @@ package edu.cnm.deepdive.deltadraft.service;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
 import edu.cnm.deepdive.deltadraft.service.scraper.PlayerScraper01;
+import jakarta.inject.Inject;
 import java.io.IOException;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class PlayerRepository {
 
   private final PlayerDao playerDao;
 
+  @Inject
   public PlayerRepository(PlayerDao playerDao) {
     this.playerDao = playerDao;
   }

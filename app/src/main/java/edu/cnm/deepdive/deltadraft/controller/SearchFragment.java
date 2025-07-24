@@ -17,11 +17,9 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
+import edu.cnm.deepdive.deltadraft.R;
 import edu.cnm.deepdive.deltadraft.databinding.FragmentSearchBinding;
 import edu.cnm.deepdive.deltadraft.viewmodel.LogInViewModel;
-import edu.cnm.deepdive.deltadraft.R;
-
-import javax.inject.Inject;
 
 @AndroidEntryPoint
 public class SearchFragment extends Fragment implements MenuProvider {

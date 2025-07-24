@@ -42,16 +42,16 @@ public class Preloader extends RoomDatabase.Callback {
     try (
         InputStream input = context.getResources().openRawResource(R.raw.advanced2025);
         Reader reader = new InputStreamReader(input);
-        CSVReader csv=new CSVReaderBuilder(reader).withSkipLines(1).build()
+        CSVReader csv = new CSVReaderBuilder(reader).withSkipLines(1).build()
     ){
       List<Player> players = new ArrayList<>();
       String[] line;
       while ((line = csv.readNext()) != null) {
         // parse columns
         Player p = new Player();
-        p.setPlayerId(line[34]);
+        p.setPlayerId(line[30]);
         p.setPlayerName(line[1]);
-        p.setPosition(line[32]);
+        p.setPosition(line[28]);
         players.add(p);
       }
       Scheduler scheduler = Schedulers.io();

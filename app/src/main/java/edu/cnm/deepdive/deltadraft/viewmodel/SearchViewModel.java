@@ -32,6 +32,7 @@ public class SearchViewModel extends ViewModel implements DefaultLifecycleObserv
 
   @Inject
   SearchViewModel(@ApplicationContext Context context, @NonNull PlayerRepository playerRepository, @NonNull UserRepository userRepository) {
+    this.context = context;
     this.playerRepository = playerRepository;
     this.userRepository = userRepository;
     pending = new CompositeDisposable();
@@ -41,6 +42,10 @@ public class SearchViewModel extends ViewModel implements DefaultLifecycleObserv
     user = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     fetchUser();
+  }
+
+  public MutableLiveData<String> getPlayerId() {
+    return playerId;
   }
 
   public MutableLiveData<List<Player>> getPlayers() {
@@ -53,6 +58,10 @@ public class SearchViewModel extends ViewModel implements DefaultLifecycleObserv
 
   public MutableLiveData<User> getUser() {
     return user;
+  }
+
+  public MutableLiveData<Throwable> getThrowable() {
+    return throwable;
   }
 
   public void addPlayer(Player player) {
