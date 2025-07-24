@@ -17,20 +17,16 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.deltadraft.databinding.FragmentListBinding;
-import edu.cnm.deepdive.deltadraft.view.adapter.NoteAdapter;
+import edu.cnm.deepdive.deltadraft.databinding.FragmentSearchBinding;
 import edu.cnm.deepdive.deltadraft.viewmodel.LogInViewModel;
 import edu.cnm.deepdive.deltadraft.R;
 
 import javax.inject.Inject;
 
 @AndroidEntryPoint
-public class ListFragment extends Fragment implements MenuProvider {
+public class SearchFragment extends Fragment implements MenuProvider {
 
-  @Inject
-  NoteAdapter adapter;
-
-  private FragmentListBinding binding;
+  private FragmentSearchBinding binding;
   private LogInViewModel loginViewModel;
 
 
@@ -47,7 +43,7 @@ public class ListFragment extends Fragment implements MenuProvider {
             .observe((owner), (account) -> {
               if (account == null) {
                Navigation.findNavController(binding.getRoot())
-                   .navigate(ListFragmentDirections.showPreLogin());
+                   .navigate(SearchFragmentDirections.showPreLogin());
               }
             });
     activity.addMenuProvider(this, owner, State.RESUMED);
@@ -58,8 +54,8 @@ public class ListFragment extends Fragment implements MenuProvider {
 
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
-    binding = FragmentListBinding.inflate(inflater, container, false);
-    binding.placeHolder.setAdapter(adapter);
+    binding = FragmentSearchBinding.inflate(inflater, container, false);
+//    binding.placeHolder.setAdapter(adapter);
     return binding.getRoot();
   }
 
