@@ -18,8 +18,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
@@ -27,6 +30,7 @@ public class Preloader extends RoomDatabase.Callback {
 
   private final Context context;
   private final Provider<PlayerDao> playerDaoProvider;
+  private static final float MLB_AVERAGE_DELTA = 0.046f;
 
   @Inject
   Preloader(@ApplicationContext Context context,
@@ -40,7 +44,7 @@ public class Preloader extends RoomDatabase.Callback {
     super.onCreate(db);
     Log.d("Preloader", "Database onCreate triggered");
     try (
-        InputStream input = context.getResources().openRawResource(R.raw.advanced2025);
+        InputStream input = context.getResources().openRawResource(R.raw.aggregated2025);
         Reader reader = new InputStreamReader(input);
         CSVReader csv = new CSVReaderBuilder(reader).withSkipLines(1).build()
     ){
@@ -49,9 +53,25 @@ public class Preloader extends RoomDatabase.Callback {
       while ((line = csv.readNext()) != null) {
         // parse columns
         Player p = new Player();
-        p.setPlayerId(line[30]);
+        p.setPlayerId(line[34]);
         p.setPlayerName(line[1]);
-        p.setPosition(line[28]);
+        p.setPosition(PlayerHelper.parsePrimaryPosition(line[32]));
+        p.setTeamMlb(line[4]);
+        if (!line[19].isEmpty()){
+          p.setAvg(Float.parseFloat(line[19]));
+        }
+        if (!line[35].isEmpty()){
+          p.setBabip(Float.parseFloat(line[35]));
+        }
+        if (!line[36].isEmpty()){
+          p.setExitVelo(Float.parseFloat(line[36]));
+        }
+        if (!line[37].isEmpty()){
+          p.setHardHit(Float.parseFloat(line[37]));
+        }
+        if (!line[19].isEmpty() && !line[35].isEmpty()){
+          p.setDelta( (int) ((Float.parseFloat(line[35]) - Float.parseFloat(line[19]) - MLB_AVERAGE_DELTA) * 1000));
+        }
         players.add(p);
       }
       Scheduler scheduler = Schedulers.io();

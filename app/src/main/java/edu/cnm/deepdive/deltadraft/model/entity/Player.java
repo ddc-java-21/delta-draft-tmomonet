@@ -24,6 +24,8 @@ public class Player {
   @ColumnInfo(name = "owner_id", index = true)
   private long ownerId;
 
+  private String image;
+
   @NonNull
   private Instant modified = Instant.now();
 
@@ -57,6 +59,12 @@ public class Player {
   public String getPlayerName() {
     return playerName;
   }
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {}
 
   public void setPlayerId(@NonNull String playerId) {
     this.playerId = playerId;

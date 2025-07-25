@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.deltadraft.service.scraper;
+package edu.cnm.deepdive.deltadraft.service.util;
 
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 
-public class PlayerScraper01 {
+public class PlayerHelper {
 
   private static final String STANDARD_URL =
       "https://www.baseball-reference.com/leagues/majors/2025-standard-batting.shtml";
@@ -163,10 +163,24 @@ public class PlayerScraper01 {
     }
   }
 
-  private static String parsePrimaryPosition(String raw) {
-    if (raw == null || raw.isEmpty()) return "";
-    String code = raw.split("/")[0].trim();
-    return POSITION_MAP.getOrDefault(code, code); // fallback to code if unknown
+  public static String parsePrimaryPosition(String raw) {
+    if (raw == null || raw.isEmpty()) {
+      return "";
+    }
+    // Strip leading '*' and anything after '/' (e.g., "/H")
+    String cleaned = raw.replace("*", "").split("/")[0].trim();
+
+    List<String> positions = new ArrayList<>();
+
+    for (char c : cleaned.toCharArray()) {
+      String code = String.valueOf(c).toUpperCase();
+      String mapped = POSITION_MAP.getOrDefault(code, code);
+      if (!positions.contains(mapped)) {
+        positions.add(mapped); // Avoid duplicates
+      }
+    }
+
+    return String.join("/", positions);
   }
 
   private static Element extractCommentedTable(Document doc, String tableId) {

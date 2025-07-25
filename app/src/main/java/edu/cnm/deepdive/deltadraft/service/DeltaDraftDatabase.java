@@ -17,6 +17,7 @@ import edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase.Converters;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
 import edu.cnm.deepdive.deltadraft.service.dao.TeamDao;
 import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
+import java.net.URL;
 import java.time.Instant;
 
 @Database(
@@ -41,9 +42,15 @@ public abstract class DeltaDraftDatabase extends androidx.room.RoomDatabase {
   public abstract TeamDao getTeamDao();
 
   public static class Converters {
+
     @TypeConverter
     public static Long fromInstant(Instant value) {
       return (value == null) ? null : value.toEpochMilli();
+    }
+
+    @TypeConverter
+    public static String fromUrl(URL url) {
+      return (url == null) ? null : url.toString();
     }
 
     @TypeConverter
