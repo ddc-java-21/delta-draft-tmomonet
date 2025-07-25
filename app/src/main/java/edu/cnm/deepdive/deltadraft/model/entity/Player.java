@@ -34,8 +34,10 @@ public class Player {
   private String playerName;
 
   private String position;
+
   @ColumnInfo(name = "team_mlb", index = true)
   private String teamMlb;
+
   private float avg;
   private float babip;
   private float hardHit;
@@ -99,7 +101,7 @@ public class Player {
     return teamMlb;
   }
 
-  public void setTeamMlb(String team_mlb) {
+  public void setTeamMlb(String teamMlb) {
     this.teamMlb = teamMlb;
   }
 

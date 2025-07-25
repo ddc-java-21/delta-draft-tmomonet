@@ -56,7 +56,9 @@ public class Preloader extends RoomDatabase.Callback {
         p.setPlayerId(line[34]);
         p.setPlayerName(line[1]);
         p.setPosition(PlayerHelper.parsePrimaryPosition(line[32]));
-        p.setTeamMlb(line[4]);
+        if (!line[3].isEmpty()){
+            p.setTeamMlb(line[3]);
+        }
         if (!line[19].isEmpty()){
           p.setAvg(Float.parseFloat(line[19]));
         }
