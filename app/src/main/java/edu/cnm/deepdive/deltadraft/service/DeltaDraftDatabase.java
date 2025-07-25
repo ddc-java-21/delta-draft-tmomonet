@@ -6,8 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
-import edu.cnm.deepdive.deltadraft.model.entity.Image;
-import edu.cnm.deepdive.deltadraft.model.entity.Note;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
 import edu.cnm.deepdive.deltadraft.model.entity.Team;
 import edu.cnm.deepdive.deltadraft.model.entity.User;
