@@ -44,8 +44,7 @@ public class LoginFragment extends Fragment {
         .getAccount()
         .observe(owner, (account) -> {
           if (account != null) {
-            Navigation.findNavController(binding.getRoot())
-                .navigate(LoginFragmentDirections.showList());
+            Navigation.findNavController(binding.getRoot());
           }
         });
     viewModel
