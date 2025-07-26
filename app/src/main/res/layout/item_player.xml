@@ -26,7 +26,7 @@
       style="@style/ListItemTitle"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintStart_toEndOf="@id/thumbnail"
-      app:layout_constraintEnd_toStartOf="@id/stats_scroll"
+      app:layout_constraintEnd_toStartOf="@id/stats_scroll_header"
       app:layout_constraintHorizontal_weight="@integer/title_weight"
       tools:text="Player Name"/>
 
@@ -48,7 +48,7 @@
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/half_static_spacing"
       app:layout_constraintStart_toEndOf="@id/pos"
-      app:layout_constraintEnd_toStartOf="@id/stats_scroll"
+      app:layout_constraintEnd_toStartOf="@id/stats_scroll_header"
       app:layout_constraintTop_toBottomOf="@id/player_name"
       app:layout_constraintHorizontal_weight="@integer/created_weight"
       tools:text="MLB"/>
@@ -85,7 +85,7 @@
 
 <!--    ADD LOGIC TO ADD PLAYERS THUMB-->
     <HorizontalScrollView
-      android:id="@+id/stats_scroll"
+      android:id="@+id/stats_scroll_header"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:scrollbars="horizontal"

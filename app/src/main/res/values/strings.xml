@@ -9,7 +9,7 @@
   <string name="add_photo_description">Add Photo</string>
   <string name="save_changes_description">Save changes</string>
   <string name="cancel_description">Cancel</string>
-  <string name="add_note_description">Create New Note</string>
+  <string name="add_player_description">Add Player to Team</string>
   <string name="sign_in_failure_message">Unable to sign in in with credentials</string>
   <string name="sign_out_title">Sign Out</string>
   <string name="babip">BABIP</string>

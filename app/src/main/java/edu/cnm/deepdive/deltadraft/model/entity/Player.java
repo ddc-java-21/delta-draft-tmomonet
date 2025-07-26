@@ -66,7 +66,9 @@ public class Player {
     return image;
   }
 
-  public void setImage(String image) {}
+  public void setImage(String image) {
+    this.image = image;
+  }
 
   public void setPlayerId(@NonNull String playerId) {
     this.playerId = playerId;

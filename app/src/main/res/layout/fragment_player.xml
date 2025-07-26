@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context=".controller.SearchFragment">
+
+  <View
+    android:id="@+id/place_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-66dp"
+    tools:listitem="@layout/item_player"/>
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add_note"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:useCompatPadding="true"
+    android:contentDescription="@string/add_player_description"
+    android:tooltipText="@string/add_player_description"
+    android:src="@drawable/add_player"
+    android:layout_margin="@dimen/half_dynamic_spacing"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <TextView
+      android:id="@+id/player_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      style="@style/ListItemTitle"
+      app:layout_constraintTop_toBottomOf="@id/thumbnail"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_weight="@integer/title_weight"
+      tools:text="Player Name"/>
+
+
+    <TextView
+      android:id="@+id/pos"
+      android:layout_width="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/team_name"
+      app:layout_constraintTop_toBottomOf="@id/player_name"
+      app:layout_constraintHorizontal_weight="@integer/created_weight"
+      tools:text="Pos"/>
+
+    <TextView
+      android:id="@+id/team_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      app:layout_constraintStart_toEndOf="@id/pos"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/player_name"
+      app:layout_constraintHorizontal_weight="@integer/created_weight"
+      tools:text="MLB"/>
+
+    <TextView
+      android:id="@+id/description"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_static_spacing"
+      android:minLines="@integer/min_description_lines"
+      android:maxLines="@integer/max_description_lines"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/team_name"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toTopOf="@id/stats_scroll_header"
+      app:layout_constraintHorizontal_weight="@integer/title_weight"
+      tools:text="a Series of complicated descriptions."
+      />
+
+    <ImageView
+      android:id="@+id/thumbnail"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:scaleType="fitCenter"
+      android:adjustViewBounds="true"
+      android:layout_marginHorizontal="@dimen/half_static_spacing"
+      android:layout_marginBottom="@dimen/half_static_spacing"
+      android:layout_marginTop="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      tools:src="@android:drawable/gallery_thumb"
+      app:layout_constraintHorizontal_weight="@integer/created_weight"
+      tools:ignore="ContentDescription"/>
+
+    <!--    ADD LOGIC TO ADD PLAYERS THUMB-->
+    <HorizontalScrollView
+      android:id="@+id/stats_scroll_header"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:scrollbars="horizontal"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      app:layout_constraintTop_toBottomOf="@id/description"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      >
+
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Example views inside the horizontal scroll -->
+
+        <TextView
+          android:id="@+id/avg_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/full_dynamic_spacing"
+          android:text="@string/batting_average"/>
+        <TextView
+          android:id="@+id/babip_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/babip"
+          android:layout_margin="@dimen/full_dynamic_spacing"/>
+
+        <TextView
+          android:id="@+id/delta_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/full_dynamic_spacing"
+          android:text="@string/delta"/>
+        <TextView
+          android:id="@+id/hardhit_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/full_dynamic_spacing"
+          android:text="@string/hard_hit_percentage" />
+
+        <TextView
+          android:id="@+id/ev_text"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/full_dynamic_spacing"
+          android:text="@string/exit_velo" />
+
+        <!-- Add more views as needed -->
+
+      </LinearLayout>
+    </HorizontalScrollView>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/div_size"
+    android:background="@android:color/darker_gray"
+    android:layout_marginVertical="@dimen/half_dynamic_spacing"
+    app:layout_constraintTop_toBottomOf="@id/stats_scroll_header"
+    app:layout_constraintBottom_toTopOf="@id/stats_scroll_values"
+    app:layout_constraintStart_toStartOf="parent"
+    />
+
+  <HorizontalScrollView
+    android:id="@+id/stats_scroll_values"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal"
+    app:layout_constraintTop_toBottomOf="@id/stats_scroll_header"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    >
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/half_dynamic_spacing"
+      android:orientation="horizontal">
+
+      <!-- Example views inside the horizontal scroll -->
+
+      <TextView
+        android:id="@+id/avg_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/full_dynamic_spacing"
+        android:text="@string/batting_average"/>
+      <TextView
+        android:id="@+id/babip_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/babip"
+        android:layout_margin="@dimen/full_dynamic_spacing"/>
+
+      <TextView
+        android:id="@+id/delta_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/full_dynamic_spacing"
+        android:text="@string/delta"/>
+      <TextView
+        android:id="@+id/hardhit_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/full_dynamic_spacing"
+        android:text="@string/hard_hit_percentage" />
+
+      <TextView
+        android:id="@+id/ev_val"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/full_dynamic_spacing"
+        android:text="@string/exit_velo" />
+
+      <!-- Add more views as needed -->
+
+    </LinearLayout>
+  </HorizontalScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

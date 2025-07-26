@@ -4,7 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_graph"
   app:startDestination="@id/pre_login_fragment">
-
+<!--TODO 7/25/25: ADD NAV DIRECTIONS TO WIRE WITH VIEWMODEL TO NEW FRAGMENTS-->
   <fragment
     android:id="@+id/pre_login_fragment"
     android:name="edu.cnm.deepdive.deltadraft.controller.PreLoginFragment"
