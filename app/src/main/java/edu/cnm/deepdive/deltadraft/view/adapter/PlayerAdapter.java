@@ -78,7 +78,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.Holder> {
       binding.itemDelta.setText(String.valueOf(player.getDelta()));
 
       // Format hard hit percentage (value multiplied by 100, shown with percent sign)
-      binding.itemHardhit.setText(String.format(Locale.US, "%.1f%%", player.getHardHit() * 100));
+      binding.itemHardhit.setText(String.format(Locale.US, "%.1f%%", player.getHardHit()));
 
       // Format exit velocity as plain number (or use decimal formatting as needed)
       binding.itemEv.setText(String.format(Locale.US, "%.1f", player.getExitVelo()));
