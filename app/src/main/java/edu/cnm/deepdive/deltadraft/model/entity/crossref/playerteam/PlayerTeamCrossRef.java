@@ -20,11 +20,12 @@ public class PlayerTeamCrossRef {
 
   @NonNull
   @ColumnInfo(name = "player_id")
-  String playerId;
+  public String playerId;
 
   @ColumnInfo(name = "team_id")
-  long teamId;
+  public long teamId;
 
+  @NonNull
   public String getPlayerId() {
     return playerId;
   }

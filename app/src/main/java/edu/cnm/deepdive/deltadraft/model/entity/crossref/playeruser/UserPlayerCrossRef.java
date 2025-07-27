@@ -17,16 +17,18 @@ import edu.cnm.deepdive.deltadraft.model.entity.User;
 public class UserPlayerCrossRef {
 
   @NonNull
-  String user_id;
+  @ColumnInfo(name = "user_id")
+  public Long userId;
   @NonNull
-  String player_id;
+      @ColumnInfo(name = "player_id")
+  public String playerId;
 
-  public String getUser_id() {
-    return user_id;
+  public Long getUserId() {
+    return userId;
   }
 
-  public String getPlayer_id() {
-    return player_id;
+  public String getPlayerId() {
+    return playerId;
   }
 
 }

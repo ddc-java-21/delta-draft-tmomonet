@@ -9,6 +9,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
+import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.util.List;
@@ -60,7 +61,7 @@ public interface PlayerDao {
   SELECT p.* FROM player p
   INNER JOIN player_team pt ON p.player_id = pt.player_id
   WHERE pt.team_id = :teamId
-""")
+  """)
   LiveData<List<Player>> getPlayersOnTeam(long teamId);
 
   // TODO: 7/10/2025 See below
@@ -71,6 +72,8 @@ public interface PlayerDao {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
   Single<List<Long>> insertAll(List<Player> players);
 
+  @Query("SELECT * FROM player")
+  Single<List<Player>> selectAll();
 
   //PlayersByOwner?
 
