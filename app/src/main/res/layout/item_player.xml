@@ -53,24 +53,11 @@
       app:layout_constraintHorizontal_weight="@integer/created_weight"
       tools:text="MLB"/>
 
-      <TextView
-        android:id="@+id/description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/half_static_spacing"
-        android:minLines="@integer/min_description_lines"
-        android:maxLines="@integer/max_description_lines"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/player_name"
-        app:layout_constraintEnd_toStartOf="@id/thumbnail"
-        app:layout_constraintHorizontal_weight="@integer/title_weight"
-        tools:text="a Series of complicated descriptions."
-        />
 
     <ImageView
       android:id="@+id/thumbnail"
-      android:layout_width="60dp"
-      android:layout_height="60dp"
+      android:layout_width="@dimen/thumb_width"
+      android:layout_height="@dimen/thumb_height"
       android:scaleType="fitCenter"
       android:adjustViewBounds="true"
       android:layout_marginHorizontal="@dimen/half_static_spacing"
@@ -101,28 +88,38 @@
 
         <!-- Example views inside the horizontal scroll -->
 
-        <Button
+        <TextView
+          android:id="@+id/item_avg"
+          android:layout_margin="@dimen/half_dynamic_spacing"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/batting_average"/>
-        <Button
+          />
+        <TextView
+          android:id="@+id/item_babip"
+          android:layout_margin="@dimen/half_dynamic_spacing"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/babip" />
+          />
 
-        <Button
+        <TextView
+          android:id="@+id/item_delta"
+          android:layout_margin="@dimen/half_dynamic_spacing"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/delta"/>
-        <Button
+          />
+        <TextView
+          android:id="@+id/item_hardhit"
+          android:layout_margin="@dimen/half_dynamic_spacing"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/hard_hit_percentage" />
+          />
 
-        <Button
+        <TextView
+          android:id="@+id/item_ev"
+          android:layout_margin="@dimen/half_dynamic_spacing"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="@string/exit_velo" />
+          />
 
         <!-- Add more views as needed -->
 

@@ -6,4 +6,6 @@
   <dimen name="thumbnail_list_height">112dp</dimen>
   <dimen name="full_dynamic_spacing">16dp</dimen>
   <dimen name="div_size">2dp</dimen>
+  <dimen name="thumb_width">48dp</dimen>
+  <dimen name="thumb_height">72dp</dimen>
 </resources>

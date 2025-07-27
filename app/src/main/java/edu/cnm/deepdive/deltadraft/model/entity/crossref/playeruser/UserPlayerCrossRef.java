@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import edu.cnm.deepdive.deltadraft.model.entity.User;
 
 @Entity(tableName = "user_player",
@@ -13,7 +14,11 @@ import edu.cnm.deepdive.deltadraft.model.entity.User;
         parentColumns = "user_id",
         childColumns = "user_id",
         onDelete = ForeignKey.CASCADE
-    )})
+    )},
+    indices = {
+        @Index(value = {"user_id"}),
+        @Index(value = {"player_id"})
+    })
 public class UserPlayerCrossRef {
 
   @NonNull

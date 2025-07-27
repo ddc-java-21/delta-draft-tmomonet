@@ -55,6 +55,9 @@ public interface PlayerDao {
   @Query("SELECT * FROM player WHERE player_id = :player")
   LiveData<Player> getPlayerById(String player);
 
+  @Query("SELECT * FROM player ORDER BY player_id ASC")
+  LiveData<List<Player>> getAll();
+
 //Players by Team
   @Transaction
   @Query("""

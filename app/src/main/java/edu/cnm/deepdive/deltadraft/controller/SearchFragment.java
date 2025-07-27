@@ -16,26 +16,44 @@ import androidx.lifecycle.Lifecycle.State;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import dagger.hilt.android.AndroidEntryPoint;
 import edu.cnm.deepdive.deltadraft.R;
 import edu.cnm.deepdive.deltadraft.databinding.FragmentSearchBinding;
+import edu.cnm.deepdive.deltadraft.view.adapter.PlayerAdapter;
 import edu.cnm.deepdive.deltadraft.viewmodel.LogInViewModel;
+import edu.cnm.deepdive.deltadraft.viewmodel.PlayerViewModel;
 
 @AndroidEntryPoint
 public class SearchFragment extends Fragment implements MenuProvider {
 
+
   private FragmentSearchBinding binding;
   private LogInViewModel loginViewModel;
+  private PlayerViewModel playerViewModel;
+  private PlayerAdapter adapter;
 
 
   @Override
   // TODO: 7/9/2025 Implement onCreate recyclerview for players
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+
     FragmentActivity activity = requireActivity();
     ViewModelProvider provider = new ViewModelProvider(activity);
     LifecycleOwner owner = getViewLifecycleOwner();
+
     loginViewModel = provider.get(LogInViewModel.class);
+    playerViewModel = provider.get(PlayerViewModel.class);
+    adapter = new PlayerAdapter(requireContext());
+    binding.placeHolder.setAdapter(adapter);
+
+    binding.placeHolder.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+    playerViewModel.getPlayers().observe(owner, (players) -> {
+      adapter.setPlayers(players); // This will trigger bind()
+    });
+
     loginViewModel
         .getAccount()
             .observe((owner), (account) -> {
@@ -53,7 +71,7 @@ public class SearchFragment extends Fragment implements MenuProvider {
   public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
     binding = FragmentSearchBinding.inflate(inflater, container, false);
-//    binding.placeHolder.setAdapter(adapter);
+    binding.placeHolder.setAdapter(adapter);
     return binding.getRoot();
   }
 

@@ -25,6 +25,7 @@ public class PlayerViewModel extends AndroidViewModel {
   private final LiveData<List<TeamWithPlayers>> teamsForPlayer;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
+  private final LiveData<List<Player>> players;
 
   @Inject
   public PlayerViewModel(@NonNull Application application, @NonNull PlayerRepository playerRepository) {
@@ -33,12 +34,17 @@ public class PlayerViewModel extends AndroidViewModel {
     this.playerId = new MutableLiveData<>();
     this.throwable = new MutableLiveData<>();
     this.pending = new CompositeDisposable();
+    this.players = playerRepository.getAll();
     this.playerWithUsers = Transformations.switchMap(playerId, playerRepository::getPlayerWithUsers);
     this.teamsForPlayer = Transformations.switchMap(playerId, playerRepository::getTeamsForPlayer);
   }
 
   public LiveData<PlayerWithUsers> getPlayerWithUsers() {
     return playerWithUsers;
+  }
+
+  public LiveData<List<Player>> getPlayers() {
+    return players;
   }
 
   public LiveData<List<TeamWithPlayers>> getTeamsForPlayer() {

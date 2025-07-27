@@ -52,6 +52,10 @@ public class PlayerRepository {
     return playerDao.selectAll();
   }
 
+  public LiveData<List<Player>> getAll() {
+    return playerDao.getAll();
+  }
+
   public LiveData<Player> getPlayerById(String playerId) {
     return playerDao.getPlayerById(playerId);
   }
