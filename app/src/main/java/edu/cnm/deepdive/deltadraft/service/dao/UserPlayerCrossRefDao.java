@@ -10,6 +10,7 @@ import edu.cnm.deepdive.deltadraft.model.entity.crossref.playeruser.PlayerWithUs
 import edu.cnm.deepdive.deltadraft.model.entity.crossref.playeruser.UserPlayerCrossRef;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.Single;
 
 @Dao
 public interface UserPlayerCrossRefDao {
@@ -22,6 +23,6 @@ public interface UserPlayerCrossRefDao {
 
   @Transaction
   @Query("SELECT * FROM player WHERE player_id = :playerId")
-  Flowable<PlayerWithUsers> getPlayerWithUsers(String playerId);
+  Single<PlayerWithUsers> getPlayerWithUsers(String playerId);
 }
 

@@ -4,9 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.RoomWarnings;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.deltadraft.model.entity.User;
+import edu.cnm.deepdive.deltadraft.model.entity.crossref.playeruser.PlayerWithUsers;
+import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
@@ -59,4 +64,12 @@ public interface UserDao {
 
   @Query("SELECT * FROM user ORDER BY display_name ASC")
   LiveData<List<User>> selectAll();
+
+  @Transaction
+  @Query("SELECT * FROM player WHERE player_id = :playerId")
+  LiveData<PlayerWithUsers> getPlayerWithUsers(String playerId);
+
+  @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
+  @Query("INSERT INTO user_player (player_id, user_id) VALUES (:playerId, :userId)")
+  Completable link(String playerId, long userId);
 }

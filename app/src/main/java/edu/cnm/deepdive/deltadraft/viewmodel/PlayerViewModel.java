@@ -27,16 +27,14 @@ public class PlayerViewModel extends AndroidViewModel {
   private final CompositeDisposable pending;
 
   @Inject
-  public PlayerViewModel(@NonNull Application application, @NonNull PlayerRepository playerRepository,
-      LiveData<PlayerWithUsers> playerWithUsers, LiveData<List<TeamWithPlayers>> teamsForPlayer) {
+  public PlayerViewModel(@NonNull Application application, @NonNull PlayerRepository playerRepository) {
     super(application);
     this.playerRepository = playerRepository;
-    this.playerWithUsers = playerWithUsers;
-    this.teamsForPlayer = teamsForPlayer;
     this.playerId = new MutableLiveData<>();
     this.throwable = new MutableLiveData<>();
     this.pending = new CompositeDisposable();
-
+    this.playerWithUsers = Transformations.switchMap(playerId, playerRepository::getPlayerWithUsers);
+    this.teamsForPlayer = Transformations.switchMap(playerId, playerRepository::getTeamsForPlayer);
   }
 
   public LiveData<PlayerWithUsers> getPlayerWithUsers() {

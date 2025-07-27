@@ -9,8 +9,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext;
 import dagger.hilt.components.SingletonComponent;
 import edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
+import edu.cnm.deepdive.deltadraft.service.dao.PlayerTeamCrossRefDao;
 import edu.cnm.deepdive.deltadraft.service.dao.TeamDao;
 import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
+import edu.cnm.deepdive.deltadraft.service.dao.UserPlayerCrossRefDao;
 import edu.cnm.deepdive.deltadraft.service.util.Preloader;
 import javax.inject.Singleton;
 
@@ -42,6 +44,18 @@ public class DatabaseModule {
   @Singleton
   TeamDao provideTeamDao(DeltaDraftDatabase database) {
     return database.getTeamDao();
+  }
+
+  @Provides
+  @Singleton
+  PlayerTeamCrossRefDao providePlayerTeamCrossRefDao(DeltaDraftDatabase database) {
+    return database.getPlayerTeamCrossRefDao();
+  }
+
+  @Provides
+  @Singleton
+  UserPlayerCrossRefDao provideUserPlayerCrossRefDao(DeltaDraftDatabase database) {
+    return database.getUserPlayerCrossRefDao();
   }
 
 }

@@ -6,8 +6,6 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
-import edu.cnm.deepdive.deltadraft.model.entity.Image;
-import edu.cnm.deepdive.deltadraft.model.entity.Note;
 import edu.cnm.deepdive.deltadraft.model.entity.Player;
 import edu.cnm.deepdive.deltadraft.model.entity.Team;
 import edu.cnm.deepdive.deltadraft.model.entity.User;
@@ -15,8 +13,10 @@ import edu.cnm.deepdive.deltadraft.model.entity.crossref.playerteam.PlayerTeamCr
 import edu.cnm.deepdive.deltadraft.model.entity.crossref.playeruser.UserPlayerCrossRef;
 import edu.cnm.deepdive.deltadraft.service.DeltaDraftDatabase.Converters;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
+import edu.cnm.deepdive.deltadraft.service.dao.PlayerTeamCrossRefDao;
 import edu.cnm.deepdive.deltadraft.service.dao.TeamDao;
 import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
+import edu.cnm.deepdive.deltadraft.service.dao.UserPlayerCrossRefDao;
 import java.net.URL;
 import java.time.Instant;
 
@@ -36,6 +36,10 @@ public abstract class DeltaDraftDatabase extends androidx.room.RoomDatabase {
   }
 
   public abstract UserDao getUserDao();
+
+  public abstract UserPlayerCrossRefDao getUserPlayerCrossRefDao();
+
+  public abstract PlayerTeamCrossRefDao getPlayerTeamCrossRefDao();
 
   public abstract PlayerDao getPlayerDao();
 

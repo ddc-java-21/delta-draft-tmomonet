@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.deltadraft.model.entity.Team;
 import edu.cnm.deepdive.deltadraft.model.entity.User;
+import edu.cnm.deepdive.deltadraft.model.entity.crossref.playerteam.TeamWithPlayers;
+import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 import java.time.Instant;
 import java.util.List;
@@ -54,6 +58,16 @@ public interface TeamDao {
   @Query("SELECT * FROM team WHERE team_id = :teamId")
   LiveData<Team> select(long teamId);
 
-  // TODO: 7/10/2025 List<Team> teams by owner
+  @Transaction
+  @Query("""
+      SELECT * FROM team
+      WHERE team_id IN (
+        SELECT team_id FROM player_team WHERE player_id = :playerId
+      )
+  """)
+  LiveData<List<TeamWithPlayers>> getTeamsForPlayer(String playerId);
+
+  @Query("INSERT INTO player_team (player_id, team_id) VALUES (:playerId, :teamId)")
+  Completable link(String playerId, long teamId);
 
 }

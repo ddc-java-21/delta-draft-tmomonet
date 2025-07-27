@@ -8,27 +8,30 @@ import edu.cnm.deepdive.deltadraft.model.entity.crossref.playeruser.PlayerWithUs
 import edu.cnm.deepdive.deltadraft.model.entity.crossref.playeruser.UserPlayerCrossRef;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerDao;
 import edu.cnm.deepdive.deltadraft.service.dao.PlayerTeamCrossRefDao;
+import edu.cnm.deepdive.deltadraft.service.dao.TeamDao;
+import edu.cnm.deepdive.deltadraft.service.dao.UserDao;
 import edu.cnm.deepdive.deltadraft.service.dao.UserPlayerCrossRefDao;
-import edu.cnm.deepdive.deltadraft.service.util.PlayerHelper;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.Maybe;
 import io.reactivex.rxjava3.core.Single;
 import jakarta.inject.Inject;
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.Flow.Publisher;
 
 public class PlayerRepository {
 
   private final PlayerDao playerDao;
+  private final UserDao userDao;
+  private final TeamDao teamDao;
   private final PlayerTeamCrossRefDao playerTeamCrossRefDao;
   private final UserPlayerCrossRefDao userPlayerCrossRefDao;
 
   @Inject
-  public PlayerRepository(PlayerDao playerDao, PlayerTeamCrossRefDao playerTeamCrossRefDao,
+  public PlayerRepository(PlayerDao playerDao, UserDao userDao, TeamDao teamDao,
+      PlayerTeamCrossRefDao playerTeamCrossRefDao,
       UserPlayerCrossRefDao userPlayerCrossRefDao) {
     this.playerDao = playerDao;
+    this.userDao = userDao;
+    this.teamDao = teamDao;
     this.playerTeamCrossRefDao = playerTeamCrossRefDao;
     this.userPlayerCrossRefDao = userPlayerCrossRefDao;
   }
@@ -89,9 +92,11 @@ public class PlayerRepository {
     return userPlayerCrossRefDao.delete(crossRef);
   }
 
-  public Flowable<PlayerWithUsers> getPlayerWithUsers(String playerId) {
-    return userPlayerCrossRefDao.getPlayerWithUsers(playerId);
+  public LiveData<PlayerWithUsers> getPlayerWithUsers(String playerId) {
+    return userDao.getPlayerWithUsers(playerId);
   }
 
-
+  public LiveData<List<TeamWithPlayers>> getTeamsForPlayer(String playerId) {
+    return teamDao.getTeamsForPlayer(playerId);
+  }
 }
