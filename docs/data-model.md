@@ -26,8 +26,17 @@ order: 20
 
 ## Entity Classes
 
-{% include linked-image.md image='img/delta-draft-erd.svg' dest='pdf/delta-draft-erd.pdf' alt='Entity Relationship diagram' %}
+- ['User'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/model/entity/User.java)
+- ['Player'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/model/entity/Team.java)
+- ['Team'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/model/entity/Team.java)
+- ['TeamWithPlayers'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/model/entity/crossref/playerteam/TeamWithPlayers.java)
+- ['PlayerWithUser'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/model/entity/crossref/playeruser/PlayerWithUsers.java)
 
 ## Repository Classes
 
+- ['Player Repository'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/service/PlayerRepository.java)
+- ['User Repository'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/service/UserRepository.java)
+
 ## Service Classes
+
+- ['DatabaseReader'](https://github.com/ddc-java-21/delta-draft-tmomonet/blob/main/app/src/main/java/edu/cnm/deepdive/deltadraft/service/csv/DatabaseReader.java)
