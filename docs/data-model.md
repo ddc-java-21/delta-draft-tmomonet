@@ -13,14 +13,16 @@ order: 20
   {:toc}
 
 ## UML class diagram
+
 [![DeltaDraft UML Class Diagram](img/delta-draft-uml.svg)](pdf/delta-draft-uml.pdf)
 
 ## Entity Relationship Diagram
+
 [![DeltaDraft UML Class Diagram](img/delta-draft-erd.svg)](pdf/delta-draft-erd.pdf)
 
 ## Data Definition Language code
 
-{% include linked-file.md file="sql/ddl-server.sql" type="sql" %}
+{% include linked-file.md file="sql/ddl.sql" type="sql" %}
 
 ## Implementation
 

@@ -92,6 +92,7 @@ raking the past season, but underlying metrics point to a hard regression.
 * [Baseball Reference](https://www.baseball-reference.com/)
 
 ## State of Completion
+
 * Adding and handling of player thumbnails, both in the search view list, as well as in the individual player pages
 * Implementation of a list view and a somewhat more visually appealing "baseball diamond"-like 
 team display with logic to handle dragging and dropping players, while disallowing invalid placements
