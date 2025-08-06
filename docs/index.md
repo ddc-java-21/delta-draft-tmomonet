@@ -94,6 +94,7 @@ raking the past season, but underlying metrics point to a hard regression.
 ## State of Completion
 
 * Adding and handling of player thumbnails, both in the search view list, as well as in the individual player pages
+* Adding Team Repository functionality and buttons
 * Implementation of a list view and a somewhat more visually appealing "baseball diamond"-like 
 team display with logic to handle dragging and dropping players, while disallowing invalid placements
 based on positional ineligibility.
@@ -111,3 +112,6 @@ or accounting for different scoring systems.
 implementation), hitter performance against certain pitch types
 * Pitcher stats and analysis
 * Suggested queries and explanations for conclusions that can be reached from combinations of stats
+* More sabermetrically sound analysis as well as additional composite derived statistics
+* Z Score and other traditional statistics tools
+* Historical databases dating back to at least the start of the Analytics era
