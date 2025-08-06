@@ -14,7 +14,7 @@ order: 20
 
 ## UML class diagram
 
-{% include linked-image.md image="img/delta-draft.svg" dest="pdf/delta-draft.pdf" alt="UML class diagram"%}
+{% include linked-image.md image="img/delta-draft-uml.svg" dest="pdf/delta-draft.pdf" alt="UML class diagram"%}
 
 ## Data Definition Language code
 
@@ -22,5 +22,5 @@ order: 20
 
 ## Implementation
 
-
-### Entity Classes
+## Entity Classes
+{% include linked-image.md image="img/delta-draft-erd.svg" dest="pdf/delta-draft.pdf" alt=Entity Relationship diagram"%}

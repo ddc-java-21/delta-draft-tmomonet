@@ -101,8 +101,6 @@ looking up players.
 * Sorting buttons on statistical category columns
 * Search bar for players by name
 * Custom queries and filter logic in search.
-* 
-
 
 ## Stretch goals and possible enhancements
 
