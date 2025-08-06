@@ -15,3 +15,12 @@ order: 20
 ## UML class diagram
 
 {% include linked-image.md image="img/delta-draft.svg" dest="pdf/delta-draft.pdf" alt="UML class diagram"%}
+
+## Data Definition Language code
+
+{% include linked-file.md file="sql/ddl-server.sql" type="sql" %}
+
+## Implementation
+
+
+### Entity Classes

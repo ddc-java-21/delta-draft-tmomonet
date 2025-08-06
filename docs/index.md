@@ -11,7 +11,7 @@ order: 0
 {:.no_toc}
 
 - TOC
-  {:toc}
+{:toc}
 
 ## Summary
 
@@ -90,6 +90,19 @@ raking the past season, but underlying metrics point to a hard regression.
 * Google Sign-in
 * Oauth2 Authentication
 * [Baseball Reference](https://www.baseball-reference.com/)
+
+## State of Completion
+* Adding and handling of player thumbnails, both in the search view list, as well as in the individual player pages
+* Implementation of a list view and a somewhat more visually appealing "baseball diamond"-like 
+team display with logic to handle dragging and dropping players, while disallowing invalid placements
+based on positional ineligibility.
+* More extensive statistics in player view and search to allow users more modularity and information when 
+looking up players. 
+* Sorting buttons on statistical category columns
+* Search bar for players by name
+* Custom queries and filter logic in search.
+* 
+
 
 ## Stretch goals and possible enhancements
 
