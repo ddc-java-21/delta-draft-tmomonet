@@ -6,23 +6,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
-import edu.cnm.deepdive.diceroller.model.entity.Player;
-import edu.cnm.deepdive.diceroller.model.entity.Team;
 import edu.cnm.deepdive.diceroller.model.entity.User;
-import edu.cnm.deepdive.diceroller.model.entity.crossref.playerteam.PlayerTeamCrossRef;
-import edu.cnm.deepdive.diceroller.model.entity.crossref.playeruser.UserPlayerCrossRef;
 import edu.cnm.deepdive.diceroller.service.DiceRollerDatabase.Converters;
-import edu.cnm.deepdive.diceroller.service.dao.PlayerDao;
-import edu.cnm.deepdive.diceroller.service.dao.PlayerTeamCrossRefDao;
-import edu.cnm.deepdive.diceroller.service.dao.TeamDao;
 import edu.cnm.deepdive.diceroller.service.dao.UserDao;
-import edu.cnm.deepdive.diceroller.service.dao.UserPlayerCrossRefDao;
 import java.net.URL;
 import java.time.Instant;
 
 @Database(
-    entities = {User.class, Player.class, Team.class,
-        PlayerTeamCrossRef.class, UserPlayerCrossRef.class },
+    entities = {User.class },
     version = DiceRollerDatabase.VERSION
 )
 @TypeConverters({Converters.class})
@@ -36,14 +27,6 @@ public abstract class DiceRollerDatabase extends androidx.room.RoomDatabase {
   }
 
   public abstract UserDao getUserDao();
-
-  public abstract UserPlayerCrossRefDao getUserPlayerCrossRefDao();
-
-  public abstract PlayerTeamCrossRefDao getPlayerTeamCrossRefDao();
-
-  public abstract PlayerDao getPlayerDao();
-
-  public abstract TeamDao getTeamDao();
 
   public static class Converters {
 

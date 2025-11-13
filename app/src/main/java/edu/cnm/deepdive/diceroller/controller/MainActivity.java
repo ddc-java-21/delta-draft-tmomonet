@@ -7,8 +7,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.diceroller.R;
-import edu.cnm.deepdive.diceroller.databinding.ActivityMainBinding;
+import edu.cnm.deepdive.deltadraft.R;
+import edu.cnm.deepdive.deltadraft.databinding.ActivityMainBinding;
+
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
   private void setUpNavigation() {
     appBarConfig = new AppBarConfiguration.Builder
-        (R.id.pre_login_fragment, R.id.login_fragment, R.id.search_fragment)
+        (R.id.pre_login_fragment, R.id.login_fragment)
         .build();
     NavHostFragment host = binding.navHostFragment.getFragment();
     navController = host.getNavController();

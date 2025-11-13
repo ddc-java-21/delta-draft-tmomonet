@@ -15,10 +15,6 @@
       app:destination="@id/login_fragment"
       app:popUpTo="@id/nav_graph"/>
 
-    <action
-      android:id="@+id/show_list"
-      app:destination="@id/search_fragment"
-      app:popUpTo="@id/nav_graph"/>
   </fragment>
 
   <fragment
@@ -26,16 +22,9 @@
     android:name="edu.cnm.deepdive.diceroller.controller.LoginFragment"
     android:label="Sign in to Notes"
     tools:layout="@layout/fragment_login">
-    <action
-      android:id="@+id/show_list"
-      app:destination="@id/search_fragment"
-      app:popUpTo="@id/nav_graph"/>
+
   </fragment>
-  <fragment
-    android:id="@+id/search_fragment"
-    android:name="edu.cnm.deepdive.diceroller.controller.SearchFragment"
-    android:label="@string/search_fragment_name"
-    tools:layout="@layout/fragment_search">
+
     <action
       android:id="@+id/show_details"
       app:destination="@id/login_fragment"/>
@@ -43,7 +32,6 @@
       android:id="@+id/show_pre_login"
       app:destination="@id/pre_login_fragment"
       app:popUpTo="@id/nav_graph"/>
-  </fragment>
 
 
   <!--  TODO Add Silent sign-in, sign in, note detail and other req'd fragments and actions-->

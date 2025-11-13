@@ -15,8 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import com.google.android.material.snackbar.Snackbar;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.diceroller.R;
-import edu.cnm.deepdive.diceroller.databinding.FragmentLoginBinding;
+
+import edu.cnm.deepdive.deltadraft.R;
+import edu.cnm.deepdive.deltadraft.databinding.FragmentLoginBinding;
 import edu.cnm.deepdive.diceroller.viewmodel.LogInViewModel;
 
 @AndroidEntryPoint

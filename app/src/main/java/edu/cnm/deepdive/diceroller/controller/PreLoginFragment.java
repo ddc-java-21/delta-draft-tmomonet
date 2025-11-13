@@ -11,7 +11,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.diceroller.R;
+import edu.cnm.deepdive.deltadraft.R;
 import edu.cnm.deepdive.diceroller.viewmodel.LogInViewModel;
 
 @AndroidEntryPoint
