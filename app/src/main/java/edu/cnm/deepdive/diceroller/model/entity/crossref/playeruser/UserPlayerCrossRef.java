@@ -1,0 +1,39 @@
+package edu.cnm.deepdive.diceroller.model.entity.crossref.playeruser;
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import edu.cnm.deepdive.diceroller.model.entity.User;
+
+@Entity(tableName = "user_player",
+    primaryKeys = {"user_id", "player_id"},
+    foreignKeys = {@ForeignKey(
+        entity = User.class,
+        parentColumns = "user_id",
+        childColumns = "user_id",
+        onDelete = ForeignKey.CASCADE
+    )},
+    indices = {
+        @Index(value = {"user_id"}),
+        @Index(value = {"player_id"})
+    })
+public class UserPlayerCrossRef {
+
+  @NonNull
+  @ColumnInfo(name = "user_id")
+  public Long userId;
+  @NonNull
+      @ColumnInfo(name = "player_id")
+  public String playerId;
+
+  public Long getUserId() {
+    return userId;
+  }
+
+  public String getPlayerId() {
+    return playerId;
+  }
+
+}

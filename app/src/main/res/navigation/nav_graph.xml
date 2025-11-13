@@ -7,7 +7,7 @@
 <!--TODO 7/25/25: ADD NAV DIRECTIONS TO WIRE WITH VIEWMODEL TO NEW FRAGMENTS-->
   <fragment
     android:id="@+id/pre_login_fragment"
-    android:name="edu.cnm.deepdive.deltadraft.controller.PreLoginFragment"
+    android:name="edu.cnm.deepdive.diceroller.controller.PreLoginFragment"
     tools:layout="@layout/fragment_pre_login">
 
     <action
@@ -23,7 +23,7 @@
 
   <fragment
     android:id="@+id/login_fragment"
-    android:name="edu.cnm.deepdive.deltadraft.controller.LoginFragment"
+    android:name="edu.cnm.deepdive.diceroller.controller.LoginFragment"
     android:label="Sign in to Notes"
     tools:layout="@layout/fragment_login">
     <action
@@ -33,7 +33,7 @@
   </fragment>
   <fragment
     android:id="@+id/search_fragment"
-    android:name="edu.cnm.deepdive.deltadraft.controller.SearchFragment"
+    android:name="edu.cnm.deepdive.diceroller.controller.SearchFragment"
     android:label="@string/search_fragment_name"
     tools:layout="@layout/fragment_search">
     <action

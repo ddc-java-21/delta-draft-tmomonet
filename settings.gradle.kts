@@ -30,6 +30,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "delta-draft"
+rootProject.name = "diceroller"
 
 include(":app")
