@@ -13,32 +13,20 @@
     android:allowBackup="false"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
-    android:name=".DicerollerApplication"
+    android:name="edu.cnm.deepdive.diceroller.DicerollerApplication"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="AllowBackup,DataExtractionRules">
     <activity
       android:exported="true"
-      android:name=".controller.MainActivity">
+      android:name="edu.cnm.deepdive.diceroller.controller.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    
-    <provider
-      android:authorities="${applicationId}.service.imagefileprovider"
-      android:name=".service.ImageFileProvider"
-      android:exported="false"
-      android:grantUriPermissions="true">
-
-      <meta-data
-        android:name="android.support.FILE_PROVIDER_PATHS"
-        android:resource="@xml/provider_paths"/>
-
-    </provider>
     
   </application>
 

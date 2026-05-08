@@ -7,8 +7,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import dagger.hilt.android.AndroidEntryPoint;
-import edu.cnm.deepdive.deltadraft.R;
-import edu.cnm.deepdive.deltadraft.databinding.ActivityMainBinding;
+import edu.cnm.deepdive.diceroller.R;
+import edu.cnm.deepdive.diceroller.databinding.ActivityMainBinding;
 
 
 @AndroidEntryPoint

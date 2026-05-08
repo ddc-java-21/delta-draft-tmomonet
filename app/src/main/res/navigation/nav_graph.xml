@@ -20,7 +20,7 @@
   <fragment
     android:id="@+id/login_fragment"
     android:name="edu.cnm.deepdive.diceroller.controller.LoginFragment"
-    android:label="Sign in to Notes"
+    android:label="Sign in to Diceroller"
     tools:layout="@layout/fragment_login">
 
   </fragment>

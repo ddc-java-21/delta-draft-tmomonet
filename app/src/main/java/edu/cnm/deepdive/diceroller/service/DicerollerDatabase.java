@@ -7,21 +7,21 @@ import androidx.room.Room;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import edu.cnm.deepdive.diceroller.model.entity.User;
-import edu.cnm.deepdive.diceroller.service.DiceRollerDatabase.Converters;
+import edu.cnm.deepdive.diceroller.service.DicerollerDatabase.Converters;
 import edu.cnm.deepdive.diceroller.service.dao.UserDao;
 import java.net.URL;
 import java.time.Instant;
 
 @Database(
     entities = {User.class },
-    version = DiceRollerDatabase.VERSION
+    version = DicerollerDatabase.VERSION
 )
 @TypeConverters({Converters.class})
-public abstract class DiceRollerDatabase extends androidx.room.RoomDatabase {
+public abstract class DicerollerDatabase extends androidx.room.RoomDatabase {
 
-  private static volatile DiceRollerDatabase instance;
+  private static volatile DicerollerDatabase instance;
   static final int VERSION = 1;
-  private static final String NAME = "deltadraft-db";
+  private static final String NAME = "diceroller-db";
   public static String getName() {
     return NAME;
   }
@@ -56,14 +56,14 @@ public abstract class DiceRollerDatabase extends androidx.room.RoomDatabase {
     }
   }
 
-  public static DiceRollerDatabase getInstance(Context context) {
+  public static DicerollerDatabase getInstance(Context context) {
     if (instance == null) {
-      synchronized (DiceRollerDatabase.class) {
+      synchronized (DicerollerDatabase.class) {
         if (instance == null) {
           instance = Room.databaseBuilder(
               context.getApplicationContext(),
-              DiceRollerDatabase.class,
-              "delta_draft_db"
+              DicerollerDatabase.class,
+              "diceroller_db"
           ).build();
         }
       }
